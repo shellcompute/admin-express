@@ -25,7 +25,7 @@ SYS_NAME_SHORT: str = 'AE'
 
 """
 ROOT_URL follows the domain, which might be a website.
-e.g., when set ROOT_URL='/admin', the full url address would be: http://127.0.0.1/root_url, 
+e.g., when set ROOT_URL='/admin', the full url address would be: http://127.0.0.1/admin, 
 """
 ROOT_URL: str = '/admin'  # 网址根路径名
 
