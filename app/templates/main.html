@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<h1><span>首页-静态展示</span></h1>
+<div>
+    <ul>
+        <li>前台展示</li>
+        <li>{% if current_user and current_user.is_authenticated %}
+            <a href="{{ url_for('admin.index') }}">后台管理</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">后台管理</a>
+        {% endif %}
+        </li>
+    </ul>
+<div id="time_msg">
+</div>
+</body>
+<script type="text/javascript">
+    function jump_url(){
+        let a = document.querySelector('a')
+        a.click()
+    }
+    let div = document.querySelector('#time_msg');
+    let timer = 2
+    setInterval(fn, 1000)
+    function fn() {
+        if (timer == 0) {
+            jump_url()
+        } else {
+            div.innerHTML = timer + '秒之后自动跳转后台管理';
+            timer--;
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,53 @@
+body {
+    padding-top: 0px;
+}
+
+.breadcrumb {
+  color: #999999;
+}
+
+@media (max-width: 767px) {
+  .main-header .logo {
+    display: none;
+  }
+  .main-header .navbar {
+    width: 100%
+  }
+  .main-sidebar {
+    padding-top: 50px;
+  }
+}
+.content-header {
+  position: relative;
+  padding: 0px;
+}
+.content-header > .breadcrumb {
+  float: none;
+  margin-top: 0px;
+  padding: 7px 5px;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  background: transparent;
+}
+
+@media (max-width: 767px) {
+  .content-header > .breadcrumb {
+    display: none;
+  }
+}
+
+.sidebar-menu > li.header {
+  padding: 5px 10px 5px 10px;
+}
+.sidebar-menu > li.header >.sidebar-form {
+  margin: 0px;
+}
+
+.main-header .sidebar-toggle:before {
+  content: "";
+}
+.main-header .sidebar-toggle.fa5:before {
+  content: "";
+  font-weight: 900;
+}

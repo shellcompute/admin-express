@@ -1,0 +1,57 @@
+{% extends 'admin/master.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='layui/css/layui.css') }}" media="all"/>
+    <style type="text/css">
+        body {
+            padding-top: 4px;
+        }
+
+        .layui-form-label {
+            width: 120px;
+        }
+
+        .layui-input-block {
+            margin-left: 130px;
+            width: 60%;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    <fieldset class="layui-elem-field layui-field-title" style="width: 90%;">
+        <legend>已上传文件自动处理</legend>
+    </fieldset>
+    <form class="layui-form" method="post" action="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">文件名</label>
+            <div class="layui-input-block">
+                <input type="text" name="filename" lay-verify="filename" autocomplete="off" placeholder="请输入已上传文件名"
+                       class="layui-input">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">处理类型</label>
+            <div class="layui-input-block">
+                <select name="optype" lay-verify="optype">
+                    <option value=""></option>
+                    <option value="1" selected="true">数据处理1</option>
+                    <option value="2">数据处理2</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">自动删除</label>
+            <div class="layui-input-block">
+                <input type="checkbox" name="autodel" lay-skin="switch" lay-filter="autodel"
+                       lay-text="ON|OFF">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="submit" id="mybutton" class="layui-btn" lay-submit="" lay-filter="myform">提交</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
+        </div>
+
+    </form>
+{% endblock body %}

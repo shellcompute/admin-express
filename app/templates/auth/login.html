@@ -1,0 +1,25 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %} 登录 {% endblock %}
+
+{% block content %}
+    {% for category, message in get_flashed_messages(with_categories=True) %}
+        <div class="alert alert-{{ category }}">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+        </div>
+    {% endfor %}
+    <div class="page-header">
+        <h1>登录</h1>
+    </div>
+    <div class="col-md-4">
+        {{ wtf.quick_form(form, id='loginform', action='/auth/login', form_type='horizontal', horizontal_columns=('lg',4,4)) }}
+
+        <br/>
+        <p>点击此处 <a href="{{ url_for('auth.register') }}">注册新用户</a>.</p>
+    </div>
+{#    <script type="text/javascript">#}
+{#        $('.alert').fadeOut(1500);#}
+{#    </script>#}
+{% endblock %}
+

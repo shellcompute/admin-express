@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Title{% endblock %}
+    </title>
+</head>
+<body>
+<div>
+    {% block page_content %}
+        <div>
+            <h1>{% block err_msg_title %}
+                禁止访问！401
+                {% endblock %}
+            </h1>
+            <div>返回 <a href="/admin">主页</a></div>
+            <div>返回 <a href="javascript:window.history.go(-1);">上一步</a></div>
+        </div>
+    {% endblock %}
+</div>
+</body>
+</html>

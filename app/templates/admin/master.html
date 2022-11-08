@@ -1,0 +1,53 @@
+{% extends admin_base_template %}
+
+{% block menu_links %}
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a href="#" data-toggle="control-sidebar"><i class="glyphicon glyphicon-cog"></i></a>
+        </li>
+        {# 当未登录时，显示请登录；否则，显示已登录用户名及下拉菜单 #}
+        {% if current_user.is_authenticated %}
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
+                    <i class="glyphicon glyphicon-user"></i>
+                    {{ current_user.realname if current_user else '无名氏' }}
+                    <i class="glyphicon glyphicon-chevron-down small">&nbsp;</i>
+                    <ul class="dropdown-menu">
+                        {{ layout.menu_links() }}
+                    </ul>
+                </a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{{ url_for('auth.login') }}">
+                    <i class="glyphicon glyphicon-log-in"></i>
+                    游客您好！
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}
+
+{% block tail %}
+    {{ moment.locale('zh-cn') }}
+    <footer>
+        <table style="width:100%; border: none;">
+            <tr>
+                <td style="width: 30%;"></td>
+                <td style="width: 40%;"><span>Powered by {{ admin_view.admin.name }} v1.0 ©2022-2024</span></td>
+                <td style="width: 30%;"></td>
+            </tr>
+        </table>
+        <span style="width: 30%;"></span>
+    </footer>
+    <style type="text/css">
+        footer {
+            text-align: center;
+            margin: 0px auto;
+            width: 100%;
+            bottom: 0px;
+            z-index: 9999;
+            position: fixed;
+        }
+    </style>
+{% endblock %}
