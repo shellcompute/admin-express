@@ -13,6 +13,9 @@ Admin Express 项目介绍
  - Flask-Migrate，数据模型迁移管理工具，提供快速的升级降级命令行操作能力。
  - PyYAML，yaml格式的配置文件读写。
 
+## 系统界面
+![输入图片说明](screenshot-index.png)
+
 ## 如何运行？
 
 ### 1. 初始化项目
