@@ -364,8 +364,7 @@ throw new Error('AdminLTE requires jQuery')
   };
 
   ControlSidebar.prototype.init = function () {
-    // Add click listener if the element hasn't been
-    // initialized using the data API
+    // Add click listener if the element hasn't been initialized using the data API
     if (!$(this.element).is(Selector.data)) {
       $(this).on('click', this.toggle);
     }

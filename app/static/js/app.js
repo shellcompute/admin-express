@@ -152,6 +152,12 @@ $(function () {
                 $('[data-layout="sidebar-collapse"]').click()
         })
 
+        $('.content-wrapper').on('click', function () {
+            if ($('.control-sidebar').hasClass('control-sidebar-open')) {
+                $controlSidebar.collapse()
+            }
+        })
+
         //  Reset options
         if ($('body').hasClass('fixed')) {
             $('[data-layout="fixed"]').attr('checked', 'checked')
@@ -167,13 +173,13 @@ $(function () {
 
     // Create the new tab
     var $tabPane = $('<div />', {
-        'id': 'control-sidebar-theme-demo-options-tab',
+        'id': 'control-sidebar-theme-options-tab',
         'class': 'tab-pane active'
     })
 
     // Create the tab button
     var $tabButton = $('<li />', {'class': 'active'})
-        .html('<a href=\'#control-sidebar-theme-demo-options-tab\' data-toggle=\'tab\'>'
+        .html('<a href=\'#control-sidebar-theme-options-tab\' data-toggle=\'tab\'>'
             + '<i class="fa fa-wrench"></i>'
             + '</a>')
 
@@ -188,55 +194,39 @@ $(function () {
     // Layout options
     $demoSettings.append(
         '<h4 class="control-sidebar-heading">'
-        + 'Layout Options'
+        + '页面布局'
         + '</h4>'
         // Fixed layout
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="fixed"class="pull-right"/> '
-        + 'Fixed layout'
+        + '启用固定布局'
         + '</label>'
-        + '<p>Activate the fixed layout. You can\'t use fixed and boxed layouts together</p>'
+        + '<p>设置为固定布局，注意：不能与箱式布局同时生效</p>'
         + '</div>'
         // Boxed layout
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="layout-boxed" class="pull-right"/> '
-        + 'Boxed Layout'
+        + '启用箱式布局'
         + '</label>'
-        + '<p>Activate the boxed layout</p>'
+        + '<p>设置为箱式布局</p>'
         + '</div>'
         // Sidebar Toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-layout="sidebar-collapse"class="pull-right"/> '
-        + 'Toggle Sidebar'
+        + '切换左侧菜单'
         + '</label>'
-        + '<p>Toggle the left sidebar\'s state (open or collapse)</p>'
-        + '</div>'
-        // Sidebar mini expand on hover toggle
-        + '<div class="form-group">'
-        + '<label class="control-sidebar-subheading">'
-        + '<input type="checkbox"data-enable="expandOnHover"class="pull-right"/> '
-        + 'Sidebar Expand on Hover'
-        + '</label>'
-        + '<p>Let the sidebar mini expand on hover</p>'
-        + '</div>'
-        // Control Sidebar Toggle
-        + '<div class="form-group">'
-        + '<label class="control-sidebar-subheading">'
-        + '<input type="checkbox"data-controlsidebar="control-sidebar-open"class="pull-right"/> '
-        + 'Toggle Right Sidebar Slide'
-        + '</label>'
-        + '<p>Toggle between slide over content and push content effects</p>'
+        + '<p>切换左侧菜单状态，展开或收缩</p>'
         + '</div>'
         // Control Sidebar Skin Toggle
         + '<div class="form-group">'
         + '<label class="control-sidebar-subheading">'
         + '<input type="checkbox"data-sidebarskin="toggle"class="pull-right"/> '
-        + 'Toggle Right Sidebar Skin'
+        + '切换右侧菜单皮肤'
         + '</label>'
-        + '<p>Toggle between dark and light skins for the right sidebar</p>'
+        + '<p>切换右侧菜单为黑色或白色</p>'
         + '</div>'
     )
     var $skinsList = $('<ul />', {'class': 'list-unstyled clearfix'})
@@ -341,7 +331,7 @@ $(function () {
                 + '<p class="text-center no-margin" style="font-size: 12px">Yellow Light</p>')
     $skinsList.append($skinYellowLight)
 
-    $demoSettings.append('<h4 class="control-sidebar-heading">Skins</h4>')
+    $demoSettings.append('<h4 class="control-sidebar-heading">主题皮肤</h4>')
     $demoSettings.append($skinsList)
 
     $tabPane.append($demoSettings)

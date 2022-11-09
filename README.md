@@ -14,7 +14,11 @@ Admin Express 项目介绍
  - PyYAML，yaml格式的配置文件读写。
 
 ## 系统界面
-![输入图片说明](screenshot-index.png)
+登陆系统后，进入主界面：
+![系统主界面](screenshot-index.png)
+
+通过右侧菜单可以修改主题皮肤：
+![右侧菜单界面](screenshot-right-panel.png)
 
 ## 如何运行？
 
@@ -44,13 +48,13 @@ flask account-init
 ```shell
 flask run
 ```
-默认管理员账户为：```admin/Abcd@1234```，登陆系统并修改密码即可。
+默认管理员账户为：```admin/Abcd@1234```，登陆系统后请尽快修改密码。
 
 
 ## 参与贡献
 
 1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
+2.  新建开发分支
 3.  提交代码
 4.  新建 Pull Request
 
